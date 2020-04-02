@@ -102,10 +102,10 @@ eval("/* WEBPACK VAR INJECTION */(function(__dirname) {var resolve = __webpack_r
 /*!****************************************!*\
   !*** ./node_modules/7zip/package.json ***!
   \****************************************/
-/*! exports provided: name, version, description, keywords, repository, bin, main, scripts, license, default */
+/*! exports provided: _from, _id, _inBundle, _integrity, _location, _phantomChildren, _requested, _requiredBy, _resolved, _shasum, _spec, _where, bin, bugs, bundleDependencies, deprecated, description, homepage, keywords, license, main, name, repository, scripts, version, default */
 /***/ (function(module) {
 
-eval("module.exports = JSON.parse(\"{\\\"name\\\":\\\"7zip\\\",\\\"version\\\":\\\"0.0.6\\\",\\\"description\\\":\\\"7zip Windows Package via Node.js\\\",\\\"keywords\\\":[\\\"7z\\\",\\\"7zip\\\",\\\"7-zip\\\",\\\"windows\\\",\\\"install\\\"],\\\"repository\\\":\\\"git@github.com:fritx/win-7zip.git\\\",\\\"bin\\\":{\\\"7z\\\":\\\"7zip-lite/7z.exe\\\"},\\\"main\\\":\\\"index.js\\\",\\\"scripts\\\":{\\\"test\\\":\\\"mocha\\\"},\\\"license\\\":\\\"GNU LGPL\\\"}\");\n\n//# sourceURL=webpack:///./node_modules/7zip/package.json?");
+eval("module.exports = JSON.parse(\"{\\\"_from\\\":\\\"7zip@0.0.6\\\",\\\"_id\\\":\\\"7zip@0.0.6\\\",\\\"_inBundle\\\":false,\\\"_integrity\\\":\\\"sha1-nK+xca+CMpSQNTtIFvAzR6oVCjA=\\\",\\\"_location\\\":\\\"/7zip\\\",\\\"_phantomChildren\\\":{},\\\"_requested\\\":{\\\"type\\\":\\\"version\\\",\\\"registry\\\":true,\\\"raw\\\":\\\"7zip@0.0.6\\\",\\\"name\\\":\\\"7zip\\\",\\\"escapedName\\\":\\\"7zip\\\",\\\"rawSpec\\\":\\\"0.0.6\\\",\\\"saveSpec\\\":null,\\\"fetchSpec\\\":\\\"0.0.6\\\"},\\\"_requiredBy\\\":[\\\"/electron-devtools-installer\\\"],\\\"_resolved\\\":\\\"https://registry.npm.taobao.org/7zip/download/7zip-0.0.6.tgz\\\",\\\"_shasum\\\":\\\"9cafb171af82329490353b4816f03347aa150a30\\\",\\\"_spec\\\":\\\"7zip@0.0.6\\\",\\\"_where\\\":\\\"C:\\\\\\\\xiangmu\\\\\\\\electron\\\\\\\\zmkm\\\\\\\\node_modules\\\\\\\\electron-devtools-installer\\\",\\\"bin\\\":{\\\"7z\\\":\\\"7zip-lite/7z.exe\\\"},\\\"bugs\\\":{\\\"url\\\":\\\"https://github.com/fritx/win-7zip/issues\\\"},\\\"bundleDependencies\\\":false,\\\"deprecated\\\":false,\\\"description\\\":\\\"7zip Windows Package via Node.js\\\",\\\"homepage\\\":\\\"https://github.com/fritx/win-7zip#readme\\\",\\\"keywords\\\":[\\\"7z\\\",\\\"7zip\\\",\\\"7-zip\\\",\\\"windows\\\",\\\"install\\\"],\\\"license\\\":\\\"GNU LGPL\\\",\\\"main\\\":\\\"index.js\\\",\\\"name\\\":\\\"7zip\\\",\\\"repository\\\":{\\\"type\\\":\\\"git\\\",\\\"url\\\":\\\"git+ssh://git@github.com/fritx/win-7zip.git\\\"},\\\"scripts\\\":{\\\"test\\\":\\\"mocha\\\"},\\\"version\\\":\\\"0.0.6\\\"}\");\n\n//# sourceURL=webpack:///./node_modules/7zip/package.json?");
 
 /***/ }),
 
@@ -360,18 +360,6 @@ eval("module.exports = globSync\nglobSync.GlobSync = GlobSync\n\nvar fs = __webp
 
 /***/ }),
 
-/***/ "./node_modules/has-flag/index.js":
-/*!****************************************!*\
-  !*** ./node_modules/has-flag/index.js ***!
-  \****************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\nmodule.exports = (flag, argv) => {\n\targv = argv || process.argv;\n\tconst prefix = flag.startsWith('-') ? '' : (flag.length === 1 ? '-' : '--');\n\tconst pos = argv.indexOf(prefix + flag);\n\tconst terminatorPos = argv.indexOf('--');\n\treturn pos !== -1 && (terminatorPos === -1 ? true : pos < terminatorPos);\n};\n\n\n//# sourceURL=webpack:///./node_modules/has-flag/index.js?");
-
-/***/ }),
-
 /***/ "./node_modules/inflight/inflight.js":
 /*!*******************************************!*\
   !*** ./node_modules/inflight/inflight.js ***!
@@ -492,7 +480,7 @@ eval("exports = module.exports = SemVer\n\nvar debug\n/* istanbul ignore next */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nconst os = __webpack_require__(/*! os */ \"os\");\nconst hasFlag = __webpack_require__(/*! has-flag */ \"./node_modules/has-flag/index.js\");\n\nconst {env} = process;\n\nlet forceColor;\nif (hasFlag('no-color') ||\n\thasFlag('no-colors') ||\n\thasFlag('color=false') ||\n\thasFlag('color=never')) {\n\tforceColor = 0;\n} else if (hasFlag('color') ||\n\thasFlag('colors') ||\n\thasFlag('color=true') ||\n\thasFlag('color=always')) {\n\tforceColor = 1;\n}\nif ('FORCE_COLOR' in env) {\n\tif (env.FORCE_COLOR === true || env.FORCE_COLOR === 'true') {\n\t\tforceColor = 1;\n\t} else if (env.FORCE_COLOR === false || env.FORCE_COLOR === 'false') {\n\t\tforceColor = 0;\n\t} else {\n\t\tforceColor = env.FORCE_COLOR.length === 0 ? 1 : Math.min(parseInt(env.FORCE_COLOR, 10), 3);\n\t}\n}\n\nfunction translateLevel(level) {\n\tif (level === 0) {\n\t\treturn false;\n\t}\n\n\treturn {\n\t\tlevel,\n\t\thasBasic: true,\n\t\thas256: level >= 2,\n\t\thas16m: level >= 3\n\t};\n}\n\nfunction supportsColor(stream) {\n\tif (forceColor === 0) {\n\t\treturn 0;\n\t}\n\n\tif (hasFlag('color=16m') ||\n\t\thasFlag('color=full') ||\n\t\thasFlag('color=truecolor')) {\n\t\treturn 3;\n\t}\n\n\tif (hasFlag('color=256')) {\n\t\treturn 2;\n\t}\n\n\tif (stream && !stream.isTTY && forceColor === undefined) {\n\t\treturn 0;\n\t}\n\n\tconst min = forceColor || 0;\n\n\tif (env.TERM === 'dumb') {\n\t\treturn min;\n\t}\n\n\tif (process.platform === 'win32') {\n\t\t// Node.js 7.5.0 is the first version of Node.js to include a patch to\n\t\t// libuv that enables 256 color output on Windows. Anything earlier and it\n\t\t// won't work. However, here we target Node.js 8 at minimum as it is an LTS\n\t\t// release, and Node.js 7 is not. Windows 10 build 10586 is the first Windows\n\t\t// release that supports 256 colors. Windows 10 build 14931 is the first release\n\t\t// that supports 16m/TrueColor.\n\t\tconst osRelease = os.release().split('.');\n\t\tif (\n\t\t\tNumber(process.versions.node.split('.')[0]) >= 8 &&\n\t\t\tNumber(osRelease[0]) >= 10 &&\n\t\t\tNumber(osRelease[2]) >= 10586\n\t\t) {\n\t\t\treturn Number(osRelease[2]) >= 14931 ? 3 : 2;\n\t\t}\n\n\t\treturn 1;\n\t}\n\n\tif ('CI' in env) {\n\t\tif (['TRAVIS', 'CIRCLECI', 'APPVEYOR', 'GITLAB_CI'].some(sign => sign in env) || env.CI_NAME === 'codeship') {\n\t\t\treturn 1;\n\t\t}\n\n\t\treturn min;\n\t}\n\n\tif ('TEAMCITY_VERSION' in env) {\n\t\treturn /^(9\\.(0*[1-9]\\d*)\\.|\\d{2,}\\.)/.test(env.TEAMCITY_VERSION) ? 1 : 0;\n\t}\n\n\tif (env.COLORTERM === 'truecolor') {\n\t\treturn 3;\n\t}\n\n\tif ('TERM_PROGRAM' in env) {\n\t\tconst version = parseInt((env.TERM_PROGRAM_VERSION || '').split('.')[0], 10);\n\n\t\tswitch (env.TERM_PROGRAM) {\n\t\t\tcase 'iTerm.app':\n\t\t\t\treturn version >= 3 ? 3 : 2;\n\t\t\tcase 'Apple_Terminal':\n\t\t\t\treturn 2;\n\t\t\t// No default\n\t\t}\n\t}\n\n\tif (/-256(color)?$/i.test(env.TERM)) {\n\t\treturn 2;\n\t}\n\n\tif (/^screen|^xterm|^vt100|^vt220|^rxvt|color|ansi|cygwin|linux/i.test(env.TERM)) {\n\t\treturn 1;\n\t}\n\n\tif ('COLORTERM' in env) {\n\t\treturn 1;\n\t}\n\n\treturn min;\n}\n\nfunction getSupportLevel(stream) {\n\tconst level = supportsColor(stream);\n\treturn translateLevel(level);\n}\n\nmodule.exports = {\n\tsupportsColor: getSupportLevel,\n\tstdout: getSupportLevel(process.stdout),\n\tstderr: getSupportLevel(process.stderr)\n};\n\n\n//# sourceURL=webpack:///./node_modules/supports-color/index.js?");
+eval("\nvar argv = process.argv;\n\nvar terminator = argv.indexOf('--');\nvar hasFlag = function (flag) {\n\tflag = '--' + flag;\n\tvar pos = argv.indexOf(flag);\n\treturn pos !== -1 && (terminator !== -1 ? pos < terminator : true);\n};\n\nmodule.exports = (function () {\n\tif ('FORCE_COLOR' in process.env) {\n\t\treturn true;\n\t}\n\n\tif (hasFlag('no-color') ||\n\t\thasFlag('no-colors') ||\n\t\thasFlag('color=false')) {\n\t\treturn false;\n\t}\n\n\tif (hasFlag('color') ||\n\t\thasFlag('colors') ||\n\t\thasFlag('color=true') ||\n\t\thasFlag('color=always')) {\n\t\treturn true;\n\t}\n\n\tif (process.stdout && !process.stdout.isTTY) {\n\t\treturn false;\n\t}\n\n\tif (process.platform === 'win32') {\n\t\treturn true;\n\t}\n\n\tif ('COLORTERM' in process.env) {\n\t\treturn true;\n\t}\n\n\tif (process.env.TERM === 'dumb') {\n\t\treturn false;\n\t}\n\n\tif (/^screen|^xterm|^vt100|color|ansi|cygwin|linux/i.test(process.env.TERM)) {\n\t\treturn true;\n\t}\n\n\treturn false;\n})();\n\n\n//# sourceURL=webpack:///./node_modules/supports-color/index.js?");
 
 /***/ }),
 
@@ -514,7 +502,7 @@ eval("// Returns a wrapper function that returns a wrapped callback\n// The wrap
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("\n__webpack_require__(/*! electron-debug */ \"./node_modules/electron-debug/index.js\")({ showDevTools: true });\n\n__webpack_require__(/*! electron */ \"electron\").app.on('ready', function () {\n  var installExtension = __webpack_require__(/*! electron-devtools-installer */ \"./node_modules/electron-devtools-installer/dist/index.js\");\n  installExtension.default(installExtension.VUEJS_DEVTOOLS).then(function () {}).catch(function (err) {\n    console.log('Unable to install `vue-devtools`: \\n', err);\n  });\n});\n\n__webpack_require__(/*! ./index */ \"./src/main/index.js\");\n\n//# sourceURL=webpack:///./src/main/index.dev.js?");
+eval("/**\r\n * This file is used specifically and only for development. It installs\r\n * `electron-debug` & `vue-devtools`. There shouldn't be any need to\r\n *  modify this file, but it can be used to extend your development\r\n *  environment.\r\n */\n\n/* eslint-disable */\n\n// Install `electron-debug` with `devtron`\n__webpack_require__(/*! electron-debug */ \"./node_modules/electron-debug/index.js\")({ showDevTools: true });\n\n// Install `vue-devtools`\n__webpack_require__(/*! electron */ \"electron\").app.on('ready', () => {\n  let installExtension = __webpack_require__(/*! electron-devtools-installer */ \"./node_modules/electron-devtools-installer/dist/index.js\");\n  installExtension.default(installExtension.VUEJS_DEVTOOLS).then(() => {}).catch(err => {\n    console.log('Unable to install `vue-devtools`: \\n', err);\n  });\n});\n\n// Require `main` process to boot app\n__webpack_require__(/*! ./index */ \"./src/main/index.js\");\n\n//# sourceURL=webpack:///./src/main/index.dev.js?");
 
 /***/ }),
 
@@ -526,7 +514,7 @@ eval("\n__webpack_require__(/*! electron-debug */ \"./node_modules/electron-debu
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var electron__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! electron */ \"electron\");\n/* harmony import */ var electron__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(electron__WEBPACK_IMPORTED_MODULE_0__);\n\n\nif (false) {}\n\nvar mainWindow = void 0;\nvar winURL =  true ? 'http://localhost:9080' : undefined;\n\nfunction createMenu() {\n  electron__WEBPACK_IMPORTED_MODULE_0__[\"Menu\"].setApplicationMenu(null);\n}\n\nfunction createWindow() {\n  mainWindow = new electron__WEBPACK_IMPORTED_MODULE_0__[\"BrowserWindow\"]({\n    height: 563,\n    useContentSize: true,\n    width: 1000,\n    webPreferences: {\n      webSecurity: false,\n      nodeIntegration: true\n    }\n  });\n\n  mainWindow.loadURL(winURL);\n\n  mainWindow.on('closed', function () {\n    mainWindow = null;\n  });\n}\n\ncreateMenu();\n\nelectron__WEBPACK_IMPORTED_MODULE_0__[\"app\"].on('ready', createWindow);\n\nelectron__WEBPACK_IMPORTED_MODULE_0__[\"app\"].on('window-all-closed', function () {\n  if (process.platform !== 'darwin') {\n    electron__WEBPACK_IMPORTED_MODULE_0__[\"app\"].quit();\n  }\n});\n\nelectron__WEBPACK_IMPORTED_MODULE_0__[\"app\"].on('activate', function () {\n  if (mainWindow === null) {\n    createWindow();\n  }\n});\n\n//# sourceURL=webpack:///./src/main/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var electron__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! electron */ \"electron\");\n/* harmony import */ var electron__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(electron__WEBPACK_IMPORTED_MODULE_0__);\n\n\n/**\r\n * Set `__static` path to static files in production\r\n * https://simulatedgreg.gitbooks.io/electron-vue/content/en/using-static-assets.html\r\n */\nif (false) {}\n\nlet mainWindow;\nconst winURL =  true ? `http://localhost:9080` : undefined;\n\n//创建菜单\nfunction createMenu() {\n  electron__WEBPACK_IMPORTED_MODULE_0__[\"Menu\"].setApplicationMenu(null);\n}\n\nfunction createWindow() {\n  /**\r\n   * Initial window options\r\n   */\n  mainWindow = new electron__WEBPACK_IMPORTED_MODULE_0__[\"BrowserWindow\"]({\n    height: 563,\n    useContentSize: true,\n    width: 1000,\n    webPreferences: {\n      webSecurity: false,\n      nodeIntegration: true\n    }\n  });\n\n  mainWindow.loadURL(winURL);\n\n  mainWindow.on('closed', () => {\n    mainWindow = null;\n  });\n}\n\ncreateMenu();\n\nelectron__WEBPACK_IMPORTED_MODULE_0__[\"app\"].on('ready', createWindow);\n\nelectron__WEBPACK_IMPORTED_MODULE_0__[\"app\"].on('window-all-closed', () => {\n  if (process.platform !== 'darwin') {\n    electron__WEBPACK_IMPORTED_MODULE_0__[\"app\"].quit();\n  }\n});\n\nelectron__WEBPACK_IMPORTED_MODULE_0__[\"app\"].on('activate', () => {\n  if (mainWindow === null) {\n    createWindow();\n  }\n});\n\n/**\r\n * Auto Updater\r\n *\r\n * Uncomment the following code below and install `electron-updater` to\r\n * support auto updating. Code Signing with a valid certificate is required.\r\n * https://simulatedgreg.gitbooks.io/electron-vue/content/en/using-electron-builder.html#auto-updating\r\n */\n\n/*\r\nimport { autoUpdater } from 'electron-updater'\r\n\r\nautoUpdater.on('update-downloaded', () => {\r\n  autoUpdater.quitAndInstall()\r\n})\r\n\r\napp.on('ready', () => {\r\n  if (process.env.NODE_ENV === 'production') autoUpdater.checkForUpdates()\r\n})\r\n */\n\n//# sourceURL=webpack:///./src/main/index.js?");
 
 /***/ }),
 
@@ -537,7 +525,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var elec
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("__webpack_require__(/*! C:\\xiangmu\\electron\\video\\myvideo\\src\\main\\index.dev.js */\"./src/main/index.dev.js\");\nmodule.exports = __webpack_require__(/*! C:\\xiangmu\\electron\\video\\myvideo\\src\\main\\index.js */\"./src/main/index.js\");\n\n\n//# sourceURL=webpack:///multi_./src/main/index.dev.js_./src/main/index.js?");
+eval("__webpack_require__(/*! C:\\xiangmu\\electron\\zmkm\\src\\main\\index.dev.js */\"./src/main/index.dev.js\");\nmodule.exports = __webpack_require__(/*! C:\\xiangmu\\electron\\zmkm\\src\\main\\index.js */\"./src/main/index.js\");\n\n\n//# sourceURL=webpack:///multi_./src/main/index.dev.js_./src/main/index.js?");
 
 /***/ }),
 
@@ -604,17 +592,6 @@ eval("module.exports = require(\"fs\");\n\n//# sourceURL=webpack:///external_%22
 /***/ (function(module, exports) {
 
 eval("module.exports = require(\"https\");\n\n//# sourceURL=webpack:///external_%22https%22?");
-
-/***/ }),
-
-/***/ "os":
-/*!*********************!*\
-  !*** external "os" ***!
-  \*********************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-eval("module.exports = require(\"os\");\n\n//# sourceURL=webpack:///external_%22os%22?");
 
 /***/ }),
 

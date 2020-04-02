@@ -29,7 +29,9 @@
     "extraResources": {
       "from": "./bin/",
       "to": "./bin/",
-      "filter": ["**/*"]
+      "filter": [
+        "**/*"
+      ]
     },
     "dmg": {
       "contents": [

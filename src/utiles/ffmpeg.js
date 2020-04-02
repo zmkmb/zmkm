@@ -1,8 +1,18 @@
 let path = require("path");
 let fluent_fmpeg = require("fluent-ffmpeg");
-const FFMPEGPATH = path.resolve(__dirname) + "/../../../bin/ffmpeg.exe";
 let outputPath = path.resolve(__dirname) + '/../output/';
 const node_env  = process.env.NODE_ENV;
+let fs = require('fs');
+//开发环境
+let FFMPEGPATH;
+if(node_env == "development"){
+    FFMPEGPATH = path.resolve(__dirname) + "/../../bin/ffmpeg.exe";
+}else{
+    FFMPEGPATH = path.resolve(__dirname) + "/../../../bin/ffmpeg.exe";
+}
+
+console.log(FFMPEGPATH)
+
 let ffmpeg = {
     videoList: [],
     options: {},
@@ -77,10 +87,10 @@ let ffmpeg = {
             accelerateParam = `[0:v]setpts=${(1/accelerate[0]).toFixed(2)}*PTS[v];[0:a]atempo=${accelerate[1]}[a]`;
         }
 
-        let vf = `${accelerateParam};[v]${cropParam}[crop]`;
+        let vf = `${accelerateParam};[v]${cropParam}`;
 
         if(backgroundParam){
-            vf = `${vf};${backgroundParam}`;
+            vf = `${vf}[crop];${backgroundParam}`;
         }
         
 
@@ -94,10 +104,9 @@ let ffmpeg = {
         let videoPath = this.videoList[i]
         let fmg = fluent_fmpeg();
         let fileName = path.basename(videoPath);
-        //如果非开发环境设置ffmpeg路径
-        if(node_env !== "development"){
-            fmg.setFfmpegPath(FFMPEGPATH);
-        }
+        
+        fmg.setFfmpegPath(FFMPEGPATH);
+        
         fmg.input(videoPath)
         if(this.options.background.img){
             fmg.input(this.options.background.img)
